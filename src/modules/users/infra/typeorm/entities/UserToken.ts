@@ -1,6 +1,6 @@
 import { Entity, Column, CreateDateColumn, Generated, UpdateDateColumn, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('users_tokens')
+@Entity('user_tokens')
 class UserToken {
     @PrimaryGeneratedColumn('uuid')
     id: string;
@@ -16,9 +16,7 @@ class UserToken {
     created_at: Date;
   
     @UpdateDateColumn()
-    updated_at: Date;
-
-  
+    updated_at: Date;  
 }
 
 export default UserToken;
