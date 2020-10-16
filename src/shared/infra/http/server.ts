@@ -1,7 +1,7 @@
 import 'reflect-metadata';
+import cors from 'cors';
 
 import express, { Request, Response, NextFunction } from 'express';
-import cors from 'cors';
 
 import uploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';

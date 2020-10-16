@@ -8,8 +8,8 @@ import IUserTokensRepository from '../repositories/IUserTokensRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
 interface IRequest {
-    token: string;
     password: string;
+    token: string;
 }
 
 @injectable()
@@ -27,8 +27,7 @@ class ResetPasswordService {
 
     public async execute({ password, token }: IRequest): Promise<void> {
         const userToken = await this.userTokensRepository.findByToken(token);
-        
-        
+
         if(!userToken) {
             throw new AppError('User token does not exists.');
         }
@@ -36,7 +35,6 @@ class ResetPasswordService {
         const user = await this.usersRepository.findById(userToken.user_id);
 
         if(!user) {
-            console.log('alo');
             throw new AppError('User does not exists.');
         }
 

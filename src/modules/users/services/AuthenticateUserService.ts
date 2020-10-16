@@ -30,8 +30,6 @@ class AunthenticateUserService {
 
         const user = await this.usersRepository.findByEmail(email);
 
-        console.log(user);
-
         if(!user) {
             throw new AppError('Incorrect email/password combination.', 401);
         }
